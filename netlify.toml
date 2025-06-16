@@ -1,0 +1,35 @@
+[build]
+  # Directory to change to before starting a build
+  base = "."
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "dist"
+  
+  # Default build command
+  command = "npm run build"
+
+[build.environment]
+  # Node version
+  NODE_VERSION = "18"
+
+# Production context: all deploys from the Production branch
+# set in your site's Branches settings in the UI will run these settings
+[context.production]
+  command = "npm run build"
+
+# Deploy Preview context: all deploys generated from
+# a pull/merge request will run these settings
+[context.deploy-preview]
+  command = "npm run build"
+
+# Branch Deploy context: all deploys that are not from
+# a pull/merge request or from the Production branch
+# will run these settings
+[context.branch-deploy]
+  command = "npm run build"
+
+# Redirect rules for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

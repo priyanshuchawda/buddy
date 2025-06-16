@@ -1,0 +1,8 @@
+
+project_id = "wgapkvbrwdppbmbhphvs"
+
+[functions.analyze-symptoms]
+verify_jwt = false
+
+[functions.generate-medical-report]
+verify_jwt = false
